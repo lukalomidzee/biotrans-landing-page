@@ -5,8 +5,6 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItem,
-  ListItemText,
   Toolbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -23,12 +21,34 @@ const Header = () => {
     "About us",
   ];
 
+  // Menu state
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const handleMenuState = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Biotrans Logo
+  const logo = (
+    <Box
+      component="img"
+      src={headerLogo}
+      alt="Biotrans"
+      sx={{
+        width: {
+          xs: "7rem",
+          sm: "9rem",
+          md: "10rem",
+          lg: "11rem",
+        },
+        height: "auto",
+        objectFit: "cover",
+        cursor: "pointer",
+      }}
+    ></Box>
+  );
+
+  // Mobile menu container
   const drawer = (
     <Box
       onClick={handleMenuState}
@@ -42,13 +62,32 @@ const Header = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
-          gap: 1,
+          gap: 2,
         }}
       >
+        <Box
+          component="img"
+          src={headerLogo}
+          alt="Biotrans"
+          sx={{
+            display: {
+              xs: "none",
+            },
+            "@media (max-width:320px)": {
+              display: "block",
+            },
+            width: {
+              xs: "7rem",
+              sm: "9rem",
+              md: "10rem",
+              lg: "11rem",
+            },
+            height: "auto",
+            objectFit: "cover",
+            cursor: "pointer",
+          }}
+        ></Box>
         {navLinks.map((link) => (
-          // <ListItem key={link}>
-          //   <ListItemText primary={link}></ListItemText>
-          // </ListItem>
           <Button
             key={link}
             sx={{
@@ -69,25 +108,6 @@ const Header = () => {
     </Box>
   );
 
-  const logo = (
-    <Box
-      component="img"
-      src={headerLogo}
-      alt="Biotrans"
-      sx={{
-        width: {
-          xs: "7rem",
-          sm: "9rem",
-          md: "10rem",
-          lg: "11rem",
-        },
-        height: "auto",
-        objectFit: "cover",
-        cursor: "pointer",
-      }}
-    ></Box>
-  );
-
   return (
     // Header
     <AppBar
@@ -95,7 +115,6 @@ const Header = () => {
       component="nav"
       sx={{
         width: "100%",
-        // minWidth: "15rem",
         margin: 0,
         py: 0,
         px: {
@@ -119,6 +138,7 @@ const Header = () => {
         backgroundColor: "white",
       }}
     >
+      {/* Toolbar */}
       <Toolbar
         sx={{
           width: "100%",
@@ -128,7 +148,9 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
+        {/* Biotrans logo */}
         {logo}
+        {/* Navlinks */}
         <Box sx={{ display: { xs: "none", md: "block" } }}>
           {navLinks.map((link) => (
             <Button
@@ -148,6 +170,7 @@ const Header = () => {
             </Button>
           ))}
         </Box>
+        {/* Menu icon */}
         <IconButton
           aria-label="open drawer"
           edge="end"
@@ -164,6 +187,7 @@ const Header = () => {
         >
           <MenuIcon />
         </IconButton>
+        {/* Mobile menu drawer */}
         <Drawer
           anchor="right"
           open={mobileOpen}
