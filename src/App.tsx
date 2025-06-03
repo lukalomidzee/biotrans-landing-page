@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import "./App.css";
-import Header from "./components/Header/Header";
+import Homepage from "./routes/Homepage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         padding: 0,
       }}
     >
-      <Header />
+      <Homepage />
     </Box>
   );
 }

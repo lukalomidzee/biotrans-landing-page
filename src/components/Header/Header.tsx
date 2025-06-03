@@ -11,6 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Header.css";
 import headerLogo from "../../assets/biotrans-logo.png";
 import { useState } from "react";
+import { headerLogoStyling } from "../../assets/styles/layout";
 
 const Header = () => {
   const navLinks: string[] = [
@@ -35,15 +36,7 @@ const Header = () => {
       src={headerLogo}
       alt="Biotrans"
       sx={{
-        width: {
-          xs: "7rem",
-          sm: "9rem",
-          md: "10rem",
-          lg: "11rem",
-        },
-        height: "auto",
-        objectFit: "cover",
-        cursor: "pointer",
+        ...headerLogoStyling,
       }}
     ></Box>
   );
@@ -70,21 +63,13 @@ const Header = () => {
           src={headerLogo}
           alt="Biotrans"
           sx={{
+            ...headerLogoStyling,
             display: {
               xs: "none",
             },
             "@media (max-width:320px)": {
               display: "block",
             },
-            width: {
-              xs: "7rem",
-              sm: "9rem",
-              md: "10rem",
-              lg: "11rem",
-            },
-            height: "auto",
-            objectFit: "cover",
-            cursor: "pointer",
           }}
         ></Box>
         {navLinks.map((link) => (
