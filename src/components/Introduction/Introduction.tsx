@@ -8,14 +8,16 @@ import {
 
 const Introduction = () => {
   return (
-    // Introduction section
     <Box
       sx={{
         ...sectionSizing,
         ...sectionHeadingOffset,
-        minWidth: "15rem",
+        width: "100%",
+        overflow: "hidden",
+        position: "relative",
       }}
     >
+      {/* Background section with relative positioning */}
       <Box
         sx={{
           backgroundImage: `url(${backgroundImage})`,
@@ -23,30 +25,45 @@ const Introduction = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           width: "100%",
-          height: "100%",
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: {
+            xs: "flex-start",
+            md: "center",
+          },
+
+          height: {
+            xs: "auto",
+            sm: "100svh",
+          },
         }}
       >
+        {/* Dark blue overlay that covers entire background */}
         <Box
           sx={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "100%",
-            minWidth: "15rem",
-            height: "100%",
+            right: 0,
+            bottom: 0,
             backgroundColor: "rgba(32, 52, 119, 0.4)",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Content inside relative container, placed above overlay */}
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 2,
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
             justifyContent: {
               xs: "flex-start",
-              md: "center",
+              sm: "center",
             },
-            textAlign: "center",
-            py: {
-              xs: "4rem",
-              md: "6rem",
-            },
+            minHeight: "100%",
             px: {
               xs: 2,
               sm: 5,
@@ -54,25 +71,24 @@ const Introduction = () => {
               lg: 17,
               xl: 17,
             },
+            py: {
+              xs: 6,
+              md: 10,
+            },
             boxSizing: "border-box",
           }}
         >
-          {/* Text overlay motion */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
+            style={{ width: "100%" }}
           >
-            {/* Background image text */}
             <Box
               sx={{
-                mt: {
-                  xs: 15,
-                  md: 0,
-                },
                 mb: {
-                  xs: 8,
-                  sm: 7,
+                  xs: 5,
+                  sm: 6,
                   md: 6,
                   lg: 5,
                   xl: 4,
@@ -85,11 +101,10 @@ const Introduction = () => {
                   fontWeight: "bold",
                   textAlign: "start",
                   fontSize: {
-                    xs: "2rem",
-                    sm: "3rem",
+                    xs: "clamp(1.5rem, 6vw, 2.5rem)",
                     md: "3.2rem",
-                    lg: "3.5rem",
                   },
+                  color: "#fff",
                 }}
               >
                 Specialized Cold Chain Logistics for
@@ -100,10 +115,8 @@ const Introduction = () => {
                   fontWeight: "bold",
                   textAlign: "start",
                   fontSize: {
-                    xs: "2rem",
-                    sm: "3rem",
+                    xs: "clamp(1.5rem, 6vw, 2.5rem)",
                     md: "3.2rem",
-                    lg: "3.5rem",
                   },
                   color: "#7CC6FD",
                 }}
@@ -111,68 +124,67 @@ const Introduction = () => {
                 Clinical Trials & Hazardous Materials
               </Typography>
             </Box>
+
             <Typography
               variant="h3"
               sx={{
                 textAlign: "start",
                 fontSize: {
-                  xs: "2rem",
-                  md: "2.5rem",
-                  lg: "3rem",
+                  xs: "clamp(1rem, 4.5vw, 1.6rem)",
+                  md: "2rem",
                 },
                 mb: {
-                  xs: 8,
-                  sm: 7,
+                  xs: 5,
                   md: 6,
-                  lg: 5,
-                  xl: 4,
                 },
                 color: "#FFFFFF",
-                "@media (max-width:400px)": {
-                  fontSize: "1.3rem",
-                },
-                "@media (max-width:320px)": {
-                  fontSize: "1.4rem",
-                },
               }}
             >
               Delivering critical medical specimens and dangerous goods with
               precision, compliance, and global reach — ensuring the integrity
               of every shipment.
             </Typography>
-            {/* Buttons div */}
-          </motion.div>
-          <Box
-            sx={{
-              alignSelf: "flex-start",
-            }}
-          >
-            <Button
-              variant="contained"
+
+            <Box
               sx={{
-                width: "9rem",
-                height: "3rem",
-                backgroundColor: "#ffffff",
-                color: "#243881",
-                fontWeight: "bold",
-                borderRadius: "12px",
-                px: 3,
-                py: 1.5,
-                textTransform: "none",
-                "&:focus": {
-                  outline: "none",
-                },
-                "&:focus-visible": {
-                  outline: "none",
-                },
-                "&:hover": {
-                  backgroundColor: "#f0f0f0",
-                },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
               }}
             >
-              Get started
-            </Button>
-          </Box>
+              <Button
+                variant="contained"
+                sx={{
+                  width: {
+                    xs: "8rem",
+                    sm: "9rem",
+                    md: "10rem",
+                  },
+                  height: {
+                    xs: "2.5rem",
+                    md: "3rem",
+                  },
+                  backgroundColor: "#ffffff",
+                  color: "#243881",
+                  fontWeight: "bold",
+                  borderRadius: "12px",
+                  px: 3,
+                  py: 1.5,
+                  textTransform: "none",
+                  fontSize: {
+                    xs: "0.8rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                  },
+                  "&:hover": {
+                    backgroundColor: "#f0f0f0",
+                  },
+                }}
+              >
+                Get started
+              </Button>
+            </Box>
+          </motion.div>
         </Box>
       </Box>
     </Box>

@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Header from "../components/Header/Header";
 import Introduction from "../components/Introduction/Introduction";
+import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
 
 const Homepage = () => {
   return (
@@ -14,6 +15,7 @@ const Homepage = () => {
     >
       <Header />
       <Introduction />
+      <WhoWeAre />
     </Box>
   );
 };
