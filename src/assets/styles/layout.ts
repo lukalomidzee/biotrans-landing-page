@@ -13,8 +13,6 @@ export const headerLogoStyling = {
 export const sectionSizing = {
   width: "100%",
   height: {
-    // 100vh - Header height
-    xs: "calc(100vh - 4rem)",
     sm: "calc(100vh - 5rem)",
     md: "calc(100vh - 6rem)",
     lg: "calc(100vh - 6rem)",
