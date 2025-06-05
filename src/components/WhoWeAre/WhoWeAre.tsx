@@ -1,6 +1,5 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import Card from "../Card/Card";
-import { sectionSizing } from "../../assets/styles/layout";
 import sheildSvg from "../../assets/icons/sheildSvg.svg";
 import badgeSvg from "../../assets/icons/badgeSvg.svg";
 import globeSvg from "../../assets/icons/globeSvg.svg";
@@ -45,7 +44,7 @@ const WhoWeAre = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        backgroundColor: "#F9FAFB",
+        backgroundColor: "#FFFFFF",
         px: {
           xs: "1rem",
           sm: "2rem",
@@ -148,8 +147,8 @@ const WhoWeAre = () => {
               xs: "1fr",
               sm: "1fr 1fr",
             },
-            gap: { xs: 2, md: 3 }, // reduced gap
-            mt: { xs: 4, lg: 0 }, // slightly reduced margin-top
+            gap: { xs: 2, md: 3 },
+            mt: { xs: 4, lg: 0 },
             alignItems: "stretch",
           }}
         >
@@ -161,7 +160,7 @@ const WhoWeAre = () => {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, delay: i * 0.12 }}
               style={{
-                height: "100%", // let grid control card height!
+                height: "100%",
                 display: "flex",
               }}
             >
@@ -169,8 +168,6 @@ const WhoWeAre = () => {
                 iconUrl={card.iconUrl}
                 heading={card.heading}
                 paragraph={card.paragraph}
-                // You can pass a fixed height if you want
-                // height="100%"
               />
             </motion.div>
           ))}

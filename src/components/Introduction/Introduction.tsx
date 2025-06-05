@@ -35,7 +35,8 @@ const Introduction = () => {
 
           height: {
             xs: "auto",
-            sm: "100svh",
+            sm: "90svh",
+            lg: "87svh",
           },
         }}
       >
@@ -178,6 +179,12 @@ const Introduction = () => {
                   },
                   "&:hover": {
                     backgroundColor: "#f0f0f0",
+                  },
+                  "&:focus": {
+                    outline: "none",
+                  },
+                  "&:focus-visible": {
+                    outline: "none",
                   },
                 }}
               >
