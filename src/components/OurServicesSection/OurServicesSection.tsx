@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import temperatureSvg from "../../assets/icons/temperatureSvg.svg";
 import timeSvg from "../../assets/icons/timeSvg.svg";
@@ -48,6 +48,10 @@ const OurServices = () => {
         py: {
           xs: 6,
           md: 10,
+        },
+        gap: {
+          xs: 1,
+          md: 2,
         },
         boxSizing: "border-box",
       }}
@@ -103,12 +107,18 @@ const OurServices = () => {
       {/* Cards box */}
       <Box
         sx={{
-          display: "flex",
-          flexDirection: {
-            xs: "column",
-            lg: "row",
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "1fr 1fr 1fr",
           },
-          gap: 3,
+          gap: { xs: 2, md: 3 },
+          alignItems: "stretch",
+          mb: {
+            xs: 5,
+            md: 6,
+          },
         }}
       >
         {cardData.map((card, i) => (
@@ -127,10 +137,54 @@ const OurServices = () => {
               iconUrl={card.iconUrl}
               heading={card.heading}
               paragraph={card.paragraph}
+              backgroundColor="#FFFFFF"
+              hoverBackground="linear-gradient(135deg, #e9f2fd 85%, #f4f8fb 100%)"
+              height="100%" // This is KEY for grid alignment
             />
           </motion.div>
         ))}
       </Box>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.7 }}
+      >
+        <Box>
+          <Button
+            variant="contained"
+            sx={{
+              width: {
+                xs: "8rem",
+                sm: "9rem",
+                md: "10rem",
+              },
+              height: {
+                xs: "2.5rem",
+                md: "3rem",
+              },
+              fontWeight: "bold",
+              borderRadius: "12px",
+              px: 3,
+              py: 1.5,
+              textTransform: "none",
+              fontSize: {
+                xs: "0.8rem",
+                sm: "0.9rem",
+                md: "1rem",
+              },
+              "&:focus": {
+                outline: "none",
+              },
+              "&:focus-visible": {
+                outline: "none",
+              },
+            }}
+          >
+            See more
+          </Button>
+        </Box>
+      </motion.div>
     </Box>
   );
 };

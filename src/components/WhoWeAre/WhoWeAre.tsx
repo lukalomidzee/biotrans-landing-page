@@ -168,6 +168,7 @@ const WhoWeAre = () => {
                 iconUrl={card.iconUrl}
                 heading={card.heading}
                 paragraph={card.paragraph}
+                background="linear-gradient(135deg, #f0f7ff 85%, #e1eaff 100%)"
               />
             </motion.div>
           ))}
