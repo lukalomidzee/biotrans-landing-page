@@ -17,8 +17,8 @@ const Header = () => {
   const navLinks: string[] = [
     "Home",
     "Tracking",
-    "About us",
     "Services",
+    "Packaging",
     "Contact",
   ];
 
