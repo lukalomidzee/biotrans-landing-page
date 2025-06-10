@@ -5,6 +5,7 @@ import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
 import OurServicesSection from "../components/OurServicesSection/OurServicesSection";
 import GlobalPresenceSection from "../components/GlobalPresenceSection/GlobalPresenceSection";
 import ContactSection from "../components/ContactSection/ContactSection";
+import Footer from "../components/Footer/Footer";
 
 const Homepage = () => {
   return (
@@ -22,6 +23,7 @@ const Homepage = () => {
       <OurServicesSection />
       <GlobalPresenceSection />
       <ContactSection />
+      <Footer />
     </Box>
   );
 };

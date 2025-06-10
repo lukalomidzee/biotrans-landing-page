@@ -164,7 +164,7 @@ const OurServices = () => {
                 md: "3rem",
               },
               fontWeight: "bold",
-              borderRadius: "12px",
+              borderRadius: "8px",
               px: 3,
               py: 1.5,
               textTransform: "none",

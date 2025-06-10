@@ -73,7 +73,6 @@ const ContactSection = () => {
             color: "#A0A0A0",
             fontSize: { xs: "1.05rem", md: "1.25rem", lg: "1.35rem" },
             mb: 2,
-            // maxWidth: 520,
             mx: "auto",
           }}
         >
@@ -168,10 +167,11 @@ const ContactSection = () => {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  gap: 2.5,
+                  gap: 1,
                   width: "100%",
                   py: 1.2,
                   px: 1,
+                  pl: 2,
                   background: "#F3F5F7",
                   borderRadius: 2,
                   boxShadow: theme.shadows[0],

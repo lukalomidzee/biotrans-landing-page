@@ -153,9 +153,9 @@ const Introduction = () => {
                 variant="contained"
                 sx={{
                   width: {
-                    xs: "8rem",
-                    sm: "9rem",
-                    md: "10rem",
+                    xs: "12rem",
+                    sm: "13rem",
+                    md: "15rem",
                   },
                   height: {
                     xs: "2.5rem",
@@ -164,7 +164,7 @@ const Introduction = () => {
                   backgroundColor: "#ffffff",
                   color: "#243881",
                   fontWeight: "bold",
-                  borderRadius: "12px",
+                  borderRadius: "8px",
                   px: 3,
                   py: 1.5,
                   textTransform: "none",
@@ -184,7 +184,7 @@ const Introduction = () => {
                   },
                 }}
               >
-                Get started
+                Track your shipment
               </Button>
             </Box>
           </motion.div>

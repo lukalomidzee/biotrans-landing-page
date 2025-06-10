@@ -14,13 +14,7 @@ import { useState } from "react";
 import { headerLogoStyling } from "../../assets/styles/layout";
 
 const Header = () => {
-  const navLinks: string[] = [
-    "Home",
-    "Tracking",
-    "Services",
-    "Packaging",
-    "Contact",
-  ];
+  const navLinks: string[] = ["Home", "Tracking", "Services", "Packaging"];
 
   // Menu state
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
