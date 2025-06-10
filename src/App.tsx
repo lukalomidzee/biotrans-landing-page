@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import "./App.css";
 import Homepage from "./routes/Homepage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         padding: 0,
       }}
     >
-      <Homepage />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
     </Box>
   );
 }
