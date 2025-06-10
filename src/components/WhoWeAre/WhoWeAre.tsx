@@ -104,38 +104,46 @@ const WhoWeAre = () => {
             color: "#203477",
           }}
         >
-          <Typography sx={{ fontSize: "1rem" }}>
-            Biotrans delivers pharmaceutical products and biological samples to
-            30 countries and more than 45 laboratories around the globe. Our
-            effective, timely, and safe world class service delivers your cold
-            chain shipments from 24 to 48 hours to the final destination. We
-            operate in accordance with EU Good Distribution Practice (GDP), IATA
-            regulations, international and national regulations and standards.
-          </Typography>
-          <List
-            dense
-            sx={{
-              listStyleType: "disc",
-              pl: 3,
-              fontSize: "1rem",
-            }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            style={{ width: "100%" }}
           >
-            <ListItem sx={{ display: "list-item", pl: 0 }}>
-              <ListItemText primary="Specialized in Health Care and Life Science and Transportation Logistics" />
-            </ListItem>
-            <ListItem sx={{ display: "list-item", pl: 0 }}>
-              <ListItemText primary="Guaranteed international and domestic shipping of patient biological samples, research materials, pharmaceutical products, clinical trial supplies, personalized kits and cold supply chain logistics" />
-            </ListItem>
-            <ListItem sx={{ display: "list-item", pl: 0 }}>
-              <ListItemText primary="Safe transportation of shipments at any temperature range via UN certified packaging and qualified transportation fleet, including a temperature controlled vehicle (TCV)" />
-            </ListItem>
-            <ListItem sx={{ display: "list-item", pl: 0 }}>
-              <ListItemText primary="Services for Gas and Oil shipments" />
-            </ListItem>
-            <ListItem sx={{ display: "list-item", pl: 0 }}>
-              <ListItemText primary="Customs brokerage service for import and export shipments" />
-            </ListItem>
-          </List>
+            <Typography sx={{ fontSize: "1rem" }}>
+              Biotrans delivers pharmaceutical products and biological samples
+              to 30 countries and more than 45 laboratories around the globe.
+              Our effective, timely, and safe world class service delivers your
+              cold chain shipments from 24 to 48 hours to the final destination.
+              We operate in accordance with EU Good Distribution Practice (GDP),
+              IATA regulations, international and national regulations and
+              standards.
+            </Typography>
+            <List
+              dense
+              sx={{
+                listStyleType: "disc",
+                pl: 3,
+                fontSize: "1rem",
+              }}
+            >
+              <ListItem sx={{ display: "list-item", pl: 0 }}>
+                <ListItemText primary="Specialized in Health Care and Life Science and Transportation Logistics" />
+              </ListItem>
+              <ListItem sx={{ display: "list-item", pl: 0 }}>
+                <ListItemText primary="Guaranteed international and domestic shipping of patient biological samples, research materials, pharmaceutical products, clinical trial supplies, personalized kits and cold supply chain logistics" />
+              </ListItem>
+              <ListItem sx={{ display: "list-item", pl: 0 }}>
+                <ListItemText primary="Safe transportation of shipments at any temperature range via UN certified packaging and qualified transportation fleet, including a temperature controlled vehicle (TCV)" />
+              </ListItem>
+              <ListItem sx={{ display: "list-item", pl: 0 }}>
+                <ListItemText primary="Services for Gas and Oil shipments" />
+              </ListItem>
+              <ListItem sx={{ display: "list-item", pl: 0 }}>
+                <ListItemText primary="Customs brokerage service for import and export shipments" />
+              </ListItem>
+            </List>
+          </motion.div>
         </Box>
 
         {/* Cards: Responsive and Flexible */}
