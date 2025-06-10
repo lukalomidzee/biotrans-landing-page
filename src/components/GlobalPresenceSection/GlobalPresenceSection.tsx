@@ -129,7 +129,7 @@ const GlobalPresenceSection = () => {
           <Box
             sx={{
               flex: 1,
-              maxWidth: "600px", // prevents too-wide text on big screens
+              maxWidth: "600px",
               textAlign: {
                 xs: "center",
                 md: "left",
