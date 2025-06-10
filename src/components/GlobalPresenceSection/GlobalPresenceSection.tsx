@@ -24,10 +24,6 @@ const GlobalPresenceSection = () => {
           xs: 6,
           md: 10,
         },
-        gap: {
-          xs: 4,
-          md: 6,
-        },
         boxSizing: "border-box",
       }}
     >
@@ -65,7 +61,8 @@ const GlobalPresenceSection = () => {
               color: "#A0A0A0",
               fontSize: {
                 xs: "1rem",
-                md: "1.5rem",
+                md: "1.2rem",
+                lg: "1.4rem",
               },
               textAlign: "center",
               mb: {
@@ -106,7 +103,6 @@ const GlobalPresenceSection = () => {
             sx={{
               flex: 1,
               height: {
-                xxs: "10rem",
                 xs: "15rem",
                 sm: "20rem",
                 md: "25rem",
@@ -133,36 +129,20 @@ const GlobalPresenceSection = () => {
           <Box
             sx={{
               flex: 1,
+              maxWidth: "600px", // prevents too-wide text on big screens
               textAlign: {
                 xs: "center",
                 md: "left",
               },
             }}
           >
-            {/* <Typography
-              variant="h3"
-              sx={{
-                color: "#203477",
-                fontWeight: 600,
-                fontSize: {
-                  xs: "1.2rem",
-                  sm: "1.5rem",
-                  md: "2rem",
-                },
-                mb: {
-                  xs: 2,
-                  md: 3,
-                },
-              }}
-            >
-              Global impact
-            </Typography> */}
             <Typography
               sx={{
                 color: "#5A5A5A",
                 fontSize: {
                   xs: "1rem",
-                  // md: "1rem",
+                  sm: "1.1rem",
+                  md: "1.1rem",
                   lg: "1.2rem",
                 },
               }}
@@ -171,7 +151,7 @@ const GlobalPresenceSection = () => {
               networks worldwide. Our robust global presence ensures that
               life-saving clinical materials reach their destination with
               precision and reliability — no matter where in the world they are
-              needed
+              needed.
             </Typography>
           </Box>
         </Box>
