@@ -73,7 +73,7 @@ const ContactSection = () => {
             color: "#A0A0A0",
             fontSize: { xs: "1.05rem", md: "1.25rem", lg: "1.35rem" },
             mb: 2,
-            maxWidth: 520,
+            // maxWidth: 520,
             mx: "auto",
           }}
         >
@@ -197,7 +197,7 @@ const ContactSection = () => {
                     sx={{
                       color: "#656C76",
                       fontWeight: 500,
-                      fontSize: "1.08rem",
+                      fontSize: "1rem",
                     }}
                   >
                     {item.label}
@@ -207,7 +207,7 @@ const ContactSection = () => {
                       key={line}
                       sx={{
                         color: "#8D949D",
-                        fontSize: "1.05rem",
+                        fontSize: "1rem",
                         wordBreak: "break-word",
                       }}
                     >
