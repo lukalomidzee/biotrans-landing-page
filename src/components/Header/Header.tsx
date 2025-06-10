@@ -12,6 +12,7 @@ import "./Header.css";
 import headerLogo from "../../assets/biotrans-logo.png";
 import { useState } from "react";
 import { headerLogoStyling } from "../../assets/styles/layout";
+import { useNavigate, type NavigateFunction } from "react-router-dom";
 
 const Header = () => {
   const navLinks: string[] = ["Home", "Tracking", "Services", "Packaging"];
@@ -23,6 +24,13 @@ const Header = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Navigation
+  const navigate: NavigateFunction = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   // Biotrans Logo
   const logo = (
     <Box
@@ -31,6 +39,9 @@ const Header = () => {
       alt="Biotrans"
       sx={{
         ...headerLogoStyling,
+      }}
+      onClick={() => {
+        handleNavigation("/home");
       }}
     ></Box>
   );
@@ -65,6 +76,9 @@ const Header = () => {
               display: "block",
             },
           }}
+          onClick={() => {
+            handleNavigation("/home");
+          }}
         ></Box>
         {navLinks.map((link) => (
           <Button
@@ -78,6 +92,9 @@ const Header = () => {
               "&:focus-visible": {
                 outline: "none",
               },
+            }}
+            onClick={() => {
+              handleNavigation(`/${link.toLowerCase()}`);
             }}
           >
             {link}
@@ -143,6 +160,9 @@ const Header = () => {
                 "&:focus-visible": {
                   outline: "none",
                 },
+              }}
+              onClick={() => {
+                handleNavigation(`/${link.toLowerCase()}`);
               }}
             >
               {link}

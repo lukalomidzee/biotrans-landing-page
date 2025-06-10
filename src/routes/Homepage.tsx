@@ -17,13 +17,11 @@ const Homepage = () => {
         height: "100%",
       }}
     >
-      <Header />
       <Introduction />
       <WhoWeAre />
       <OurServicesSection />
       <GlobalPresenceSection />
       <ContactSection />
-      <Footer />
     </Box>
   );
 };
