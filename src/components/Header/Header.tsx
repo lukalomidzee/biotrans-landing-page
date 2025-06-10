@@ -16,10 +16,10 @@ import { headerLogoStyling } from "../../assets/styles/layout";
 const Header = () => {
   const navLinks: string[] = [
     "Home",
-    "Services",
     "Tracking",
-    "Contact",
     "About us",
+    "Services",
+    "Contact",
   ];
 
   // Menu state

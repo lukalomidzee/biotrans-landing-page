@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import Introduction from "../components/Introduction/Introduction";
 import WhoWeAre from "../components/WhoWeAre/WhoWeAre";
 import OurServicesSection from "../components/OurServicesSection/OurServicesSection";
+import GlobalPresenceSection from "../components/GlobalPresenceSection/GlobalPresenceSection";
 
 const Homepage = () => {
   return (
@@ -18,6 +19,7 @@ const Homepage = () => {
       <Introduction />
       <WhoWeAre />
       <OurServicesSection />
+      <GlobalPresenceSection />
     </Box>
   );
 };

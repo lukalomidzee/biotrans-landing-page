@@ -1,17 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
 import backgroundImage from "../../assets/background-images/background-image-clinical-trials.jpg";
 import { motion } from "framer-motion";
-import {
-  sectionHeadingOffset,
-  sectionSizing,
-} from "../../assets/styles/layout";
+import { sectionHeadingOffset } from "../../assets/styles/layout";
 
 const Introduction = () => {
   return (
     <Box
       sx={{
         ...sectionHeadingOffset,
-        // ...sectionSizing,
         width: "100%",
         overflow: "hidden",
         position: "relative",
