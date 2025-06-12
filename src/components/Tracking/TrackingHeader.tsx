@@ -1,12 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
-import backgroundImage from "../../assets/background-images/background-image-clinical-trials.jpg";
 import { motion } from "framer-motion";
 import { sectionHeadingOffset } from "../../assets/styles/layout";
-import { useNavigate } from "react-router-dom";
+import backgroundImage from "../../assets/background-images/tracking-background.webp";
 
-const Introduction = () => {
-  const navigate = useNavigate();
-
+const TrackingHeader = () => {
   return (
     <Box
       sx={{
@@ -104,24 +101,10 @@ const Introduction = () => {
                     xs: "clamp(1.5rem, 6vw, 2.5rem)",
                     md: "3.2rem",
                   },
-                  color: "#fff",
+                  color: "#004E78",
                 }}
               >
-                Specialized Cold Chain Logistics for
-              </Typography>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontWeight: "bold",
-                  textAlign: "start",
-                  fontSize: {
-                    xs: "clamp(1.5rem, 6vw, 2.5rem)",
-                    md: "3.2rem",
-                  },
-                  color: "#7CC6FD",
-                }}
-              >
-                Clinical Trials & Hazardous Materials
+                Track Your Shipment
               </Typography>
             </Box>
 
@@ -140,9 +123,7 @@ const Introduction = () => {
                 color: "#FFFFFF",
               }}
             >
-              Delivering critical medical specimens and dangerous goods with
-              precision, compliance, and global reach — ensuring the integrity
-              of every shipment.
+              Enter your AWB number to get real-time tracking updates
             </Typography>
 
             <Box
@@ -186,9 +167,6 @@ const Introduction = () => {
                     outline: "none",
                   },
                 }}
-                onClick={() => {
-                  navigate("/tracking");
-                }}
               >
                 Track your shipment
               </Button>
@@ -200,4 +178,4 @@ const Introduction = () => {
   );
 };
 
-export default Introduction;
+export default TrackingHeader;

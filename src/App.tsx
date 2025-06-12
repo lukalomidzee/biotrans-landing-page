@@ -4,6 +4,7 @@ import Homepage from "./routes/Homepage";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Tracking from "./routes/Tracking";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
+        <Route path="/tracking" element={<Tracking />} />
       </Routes>
       <Footer />
     </Box>
