@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { sectionHeadingOffset } from "../../assets/styles/layout";
-import backgroundImage from "../../assets/background-images/tracking-background.webp";
+import backgroundImage from "../../assets/background-images/background-tracking.jpg";
 
 const TrackingHeader = () => {
   return (

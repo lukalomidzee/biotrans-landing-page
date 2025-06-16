@@ -1,5 +1,5 @@
+import TrackingBody from "../components/Tracking/TrackingBody";
 import TrackingHeader from "../components/Tracking/TrackingHeader";
-import Footer from "../components/Footer/Footer";
 import { Box } from "@mui/material";
 
 const Tracking = () => {
@@ -12,7 +12,8 @@ const Tracking = () => {
         height: "100%",
       }}
     >
-      <TrackingHeader />
+      {/* <TrackingHeader /> */}
+      <TrackingBody />
     </Box>
   );
 };
