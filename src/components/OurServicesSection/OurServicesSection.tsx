@@ -4,6 +4,7 @@ import temperatureSvg from "../../assets/icons/temperatureSvg.svg";
 import timeSvg from "../../assets/icons/timeSvg.svg";
 import sampleSvg from "../../assets/icons/sampleSvg.svg";
 import Card from "../Card/Card";
+import { useNavigate } from "react-router-dom";
 
 const OurServices = () => {
   const cardData = [
@@ -26,6 +27,8 @@ const OurServices = () => {
         "Specialized handling of blood samples, tissue specimens, and other biological materials with complete chain of custody documentation and regulatory compliance.",
     },
   ];
+
+  const navigate = useNavigate();
 
   return (
     // Outter box
@@ -179,6 +182,9 @@ const OurServices = () => {
               "&:focus-visible": {
                 outline: "none",
               },
+            }}
+            onClick={() => {
+              navigate("/services");
             }}
           >
             See more
