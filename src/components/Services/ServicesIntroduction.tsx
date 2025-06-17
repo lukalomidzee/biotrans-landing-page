@@ -44,7 +44,7 @@ const ServicesIntroduction = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "rgba(32, 52, 119, 0.4)",
+            backgroundColor: "rgba(32, 52, 119, 0.6)",
             zIndex: 1,
           }}
         />
@@ -101,7 +101,7 @@ const ServicesIntroduction = () => {
                     xs: "clamp(1.5rem, 6vw, 2.5rem)",
                     md: "3.2rem",
                   },
-                  color: "#004E78",
+                  color: "#7CC6FD",
                 }}
               >
                 Services
@@ -114,7 +114,7 @@ const ServicesIntroduction = () => {
                 textAlign: "start",
                 fontSize: {
                   xs: "clamp(0.8rem, 4vw, 1.4rem)",
-                  md: "1.6rem",
+                  md: "1.5rem",
                 },
                 mb: {
                   xs: 5,

@@ -1,5 +1,4 @@
 import TrackingBody from "../components/Tracking/TrackingBody";
-import TrackingHeader from "../components/Tracking/TrackingHeader";
 import { Box } from "@mui/material";
 
 const Tracking = () => {

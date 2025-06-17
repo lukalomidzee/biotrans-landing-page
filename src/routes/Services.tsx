@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import ServicesIntroduction from "../components/Services/ServicesIntroduction";
 import ServiceTemperature from "../components/Services/ServiceTemperature";
 import ServiceFlammable from "../components/Services/ServiceFlammable";
+import ServiceBrokerage from "../components/Services/ServiceBrokerage";
 
 const Services = () => {
   return (
@@ -16,6 +17,7 @@ const Services = () => {
       <ServicesIntroduction />
       <ServiceTemperature />
       <ServiceFlammable />
+      <ServiceBrokerage />
     </Box>
   );
 };
