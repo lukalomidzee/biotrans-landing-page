@@ -1,8 +1,8 @@
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import loggersImage from "../../assets/background-images/loggersImage.jpg";
+import flammableLiquid from "../../assets/background-images/flammableLiquid.jpg";
 
-const ServiceTemperature = () => {
+const ServiceFlammable = () => {
   return (
     <Box
       sx={{
@@ -30,7 +30,7 @@ const ServiceTemperature = () => {
       {/* Heading box */}
       <Box>
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7 }}
@@ -54,31 +54,14 @@ const ServiceTemperature = () => {
               },
             }}
           >
-            Temperature Controlled Logistics
+            Oil Shipments
           </Typography>
-          {/* <Typography
-            sx={{
-              color: "#A0A0A0",
-              fontSize: {
-                xs: "1rem",
-                md: "1.2rem",
-                lg: "1.4rem",
-              },
-              textAlign: "center",
-              mb: {
-                xs: 3,
-                md: 4,
-              },
-            }}
-          >
-            We offer international and domestic shipping of:
-          </Typography> */}
         </motion.div>
       </Box>
 
       {/* Image + Text box */}
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7 }}
@@ -98,33 +81,6 @@ const ServiceTemperature = () => {
             },
           }}
         >
-          {/* Image box */}
-          <Box
-            sx={{
-              flex: 1,
-              height: {
-                xs: "15rem",
-                sm: "20rem",
-                md: "25rem",
-              },
-              overflow: "hidden",
-              borderRadius: 2,
-              boxShadow: 1,
-            }}
-          >
-            <Box
-              component="img"
-              src={loggersImage}
-              alt="Map"
-              sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
-          </Box>
-
           {/* Text box */}
           <Box
             sx={{
@@ -138,25 +94,10 @@ const ServiceTemperature = () => {
             }}
           >
             <Typography textAlign="start">
-              We offer international and domestic shipping of:
+              Biotrans offers international and domestic shipping of oil
+              samples, falling under Category 3: Flammable Liquids of dangerous
+              goods classification issued by the United Nations.
             </Typography>
-            <List>
-              {[
-                "• Patient biological samples",
-                "• Research materials",
-                "• Pharmaceutical products",
-                "• Clinical trial supplies and cold chain logistics",
-              ].map((item, index) => (
-                <ListItem
-                  key={index}
-                  sx={{
-                    padding: 0,
-                  }}
-                >
-                  <ListItemText primary={item} />
-                </ListItem>
-              ))}
-            </List>
 
             <Box
               mt={1}
@@ -165,34 +106,51 @@ const ServiceTemperature = () => {
               }}
             >
               <Typography mb={1}>
-                Biotrans guarantees safe and timely delivery of all shipments
-                24/7 all over the world.
+                Safe and timely delivery of oil shipments is ensured though the
+                use of approved and certified packaging that is in accordance
+                with international packaging standards.
               </Typography>
               <Typography mb={1}>
-                As a specialist courier for the Life Sciences and Healthcare
-                industries, we provide logistics services for a range of
-                temperature-controlled shipments.
+                Our team is trained in the handling of dangerous goods, ensuring
+                full compliance with international transport regulations. From
+                proper labeling to certified packaging, every step is managed
+                with precision to guarantee the safety and integrity of oil
+                sample shipments
               </Typography>
               <Typography mb={1}>
-                Biotrans operates in compliance with EU Good Distribution
-                Practice (GDP), IATA regulations, international and national
-                regulations and standards.
-              </Typography>
-              <Typography mb={1}>
-                We provide proper temperature range for temperature controlled
-                shipments to ensure that the quality of shipment is maintained
-                through the entire transportation process.
-              </Typography>
-              <Typography>
-                Our experienced and dedicated staff ensures the integrity of
-                each and every shipment.
+                With a strong focus on reliability and regulatory compliance,
+                Biotrans coordinates every oil shipment with meticulous
+                attention to detail. Whether for routine testing or
+                time-sensitive analysis, we provide end-to-end support to meet
+                the unique needs of each client and industry.
               </Typography>
             </Box>
           </Box>
+          <Box
+            component="img"
+            src={flammableLiquid}
+            alt="Flammable Liquid"
+            sx={{
+              flex: 1,
+              height: {
+                xs: "15rem",
+                sm: "20rem",
+                md: "25rem",
+              },
+              width: {
+                xs: "80%",
+                md: "50%",
+              },
+              overflow: "hidden",
+              borderRadius: 2,
+              objectFit: "contain",
+              // boxShadow: 1,
+            }}
+          ></Box>
         </Box>
       </motion.div>
     </Box>
   );
 };
 
-export default ServiceTemperature;
+export default ServiceFlammable;

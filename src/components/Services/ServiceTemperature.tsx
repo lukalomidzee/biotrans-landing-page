@@ -12,7 +12,7 @@ const ServiceTemperature = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#F9FAFB",
         px: {
           xs: "1rem",
           sm: "2rem",
@@ -56,23 +56,6 @@ const ServiceTemperature = () => {
           >
             Temperature Controlled Logistics
           </Typography>
-          {/* <Typography
-            sx={{
-              color: "#A0A0A0",
-              fontSize: {
-                xs: "1rem",
-                md: "1.2rem",
-                lg: "1.4rem",
-              },
-              textAlign: "center",
-              mb: {
-                xs: 3,
-                md: 4,
-              },
-            }}
-          >
-            We offer international and domestic shipping of:
-          </Typography> */}
         </motion.div>
       </Box>
 
@@ -115,7 +98,7 @@ const ServiceTemperature = () => {
             <Box
               component="img"
               src={loggersImage}
-              alt="Map"
+              alt="Loggers"
               sx={{
                 width: "100%",
                 height: "100%",
