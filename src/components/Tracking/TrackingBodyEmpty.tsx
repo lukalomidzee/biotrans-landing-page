@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import InventoryIcon from "@mui/icons-material/Inventory";
 
-const TrackingBody = () => {
+const TrackingBodyEmpty = () => {
   return (
     <Box
       sx={{
@@ -88,4 +88,4 @@ const TrackingBody = () => {
   );
 };
 
-export default TrackingBody;
+export default TrackingBodyEmpty;

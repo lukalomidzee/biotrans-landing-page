@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import TrackingHeader from "../components/Tracking/TrackingHeader";
-import TrackingBody from "../components/Tracking/TrackingBody";
+import TrackingBodyEmpty from "../components/Tracking/TrackingBodyEmpty";
 
 const Tracking = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [hawb, setHawb] = useState<string>("");
 
   return (
     <Box
@@ -18,7 +20,7 @@ const Tracking = () => {
       }}
     >
       <TrackingHeader />
-      <TrackingBody />
+      <TrackingBodyEmpty />
     </Box>
   );
 };

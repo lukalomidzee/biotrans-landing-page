@@ -88,7 +88,7 @@ const PackagingVehicles = () => {
               height: {
                 xs: "15rem",
                 sm: "20rem",
-                md: "25rem",
+                // md: "25rem",
               },
               overflow: "hidden",
               borderRadius: 2,
