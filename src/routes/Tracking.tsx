@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import TrackingBody from "../components/Tracking/TrackingBody";
 import { Box } from "@mui/material";
+import TrackingHeader from "../components/Tracking/TrackingHeader";
 
 const Tracking = () => {
   useEffect(() => {
@@ -16,8 +16,7 @@ const Tracking = () => {
         height: "100%",
       }}
     >
-      {/* <TrackingHeader /> */}
-      <TrackingBody />
+      <TrackingHeader />
     </Box>
   );
 };

@@ -1,178 +1,171 @@
-import { Box, Button, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  TextField,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { sectionHeadingOffset } from "../../assets/styles/layout";
-import backgroundImage from "../../assets/background-images/background-tracking.jpg";
+import SearchIcon from "@mui/icons-material/Search";
 
 const TrackingHeader = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
       sx={{
         ...sectionHeadingOffset,
+        backgroundColor: "#F9FAFB",
         width: "100%",
-        overflow: "hidden",
-        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        px: {
+          xs: "1rem",
+          sm: "2rem",
+          md: "3rem",
+          lg: "4rem",
+          xl: "6rem",
+        },
+        py: {
+          xs: 6,
+          md: 10,
+        },
       }}
     >
-      {/* Background section with relative positioning */}
+      {/* Search box */}
       <Box
         sx={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          width: "100%",
-          position: "relative",
+          width: {
+            xs: "90%",
+            md: "70%",
+          },
+          height: {
+            xs: "20rem",
+            sm: "17rem",
+          },
+          backgroundColor: "white",
+          borderRadius: 5,
           display: "flex",
           flexDirection: "column",
-          justifyContent: {
-            xs: "flex-start",
-            md: "center",
-          },
-
-          height: {
-            xs: "auto",
-            sm: "90svh",
-            lg: "87svh",
-          },
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          boxShadow: 1,
+          p: 4,
+          textAlign: "center",
         }}
       >
-        {/* Dark blue overlay that covers entire background */}
-        <Box
+        <Typography
+          variant="h1"
           sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(32, 52, 119, 0.4)",
-            zIndex: 1,
-          }}
-        />
-
-        {/* Content inside relative container, placed above overlay */}
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: {
-              xs: "flex-start",
-              sm: "center",
+            color: "#203477",
+            fontWeight: 600,
+            fontSize: {
+              xs: "1.5rem",
+              sm: "2rem",
+              md: "2.5rem",
             },
-            minHeight: "100%",
-            px: {
-              xs: 2,
-              sm: 5,
-              md: 7,
-              lg: 17,
-              xl: 17,
-            },
-            py: {
-              xs: 6,
-              md: 10,
-            },
-            boxSizing: "border-box",
           }}
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            style={{ width: "100%" }}
-          >
-            <Box
-              sx={{
-                mb: {
-                  xs: 5,
-                  sm: 6,
-                  md: 6,
-                  lg: 5,
-                  xl: 4,
+          Track Your Shipment
+        </Typography>
+        <Typography
+          sx={{
+            color: "#A0A0A0",
+            fontSize: {
+              xs: "1rem",
+              sm: "1.2rem",
+              md: "1.3rem",
+            },
+            textAlign: "center",
+          }}
+        >
+          Enter your AWB number to get real-time tracking updates
+        </Typography>
+        <TextField
+          variant="outlined"
+          placeholder="Enter AWB Number..."
+          sx={{
+            width: {
+              xs: "90%",
+              sm: "80%",
+              md: "70%",
+              lg: "60%",
+            },
+            "& .MuiOutlinedInput-root": {
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "rgba(0, 0, 0, 0.23)",
+              },
+              borderRadius: "1rem",
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "#203477",
+              transition:
+                "background-color 0s ease-out 999999s, color 0s ease-out 999999s !important",
+              "&:-webkit-autofill": {
+                boxShadow: "0 0 0 100px white inset !important",
+                WebkitTextFillColor: "#203477 !important",
+                backgroundColor: "white !important",
+                transition:
+                  "background-color 0s ease-out 999999s, color 0s ease-out 999999s !important",
+              },
+              "&:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active":
+                {
+                  boxShadow: "0 0 0 100px white inset !important",
+                  WebkitTextFillColor: "#203477 !important",
+                  backgroundColor: "white !important",
+                  transition:
+                    "background-color 0s ease-out 999999s, color 0s ease-out 999999s !important",
                 },
-              }}
-            >
-              <Typography
-                variant="h1"
-                sx={{
-                  fontWeight: "bold",
-                  textAlign: "start",
-                  fontSize: {
-                    xs: "clamp(1.5rem, 6vw, 2.5rem)",
-                    md: "3.2rem",
-                  },
-                  color: "#004E78",
-                }}
-              >
-                Track Your Shipment
-              </Typography>
-            </Box>
+            },
+          }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <Button
+                  variant="contained"
+                  startIcon={<SearchIcon />}
+                  sx={{
+                    height: "3.5rem",
+                    borderRadius: 4,
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                    marginRight: "-0.8rem",
+                    background: "#203477",
+                    textTransform: "none",
+                    fontSize: "1rem",
+                    boxShadow: 0,
+                    "&:hover": {
+                      boxShadow: 0,
+                      backgroundColor: "#004E78",
+                    },
+                    "&:focus": {
+                      outline: 0,
+                    },
+                    width: { xs: "3rem", sm: "auto" },
+                    minWidth: { xs: "3rem", sm: "4rem" },
+                    paddingLeft: { xs: 0, sm: "1rem" },
+                    paddingRight: { xs: 0, sm: "2rem" },
+                    justifyContent: { xs: "center", sm: "flex-start" },
 
-            <Typography
-              variant="h3"
-              sx={{
-                textAlign: "start",
-                fontSize: {
-                  xs: "clamp(1rem, 4.5vw, 1.6rem)",
-                  md: "2rem",
-                },
-                mb: {
-                  xs: 5,
-                  md: 6,
-                },
-                color: "#FFFFFF",
-              }}
-            >
-              Enter your AWB number to get real-time tracking updates
-            </Typography>
-
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <Button
-                variant="contained"
-                sx={{
-                  width: {
-                    xs: "12rem",
-                    sm: "13rem",
-                    md: "15rem",
-                  },
-                  height: {
-                    xs: "2.5rem",
-                    md: "3rem",
-                  },
-                  backgroundColor: "#ffffff",
-                  color: "#243881",
-                  fontWeight: "bold",
-                  borderRadius: "8px",
-                  px: 3,
-                  py: 1.5,
-                  textTransform: "none",
-                  fontSize: {
-                    xs: "0.8rem",
-                    sm: "0.9rem",
-                    md: "1rem",
-                  },
-                  "&:hover": {
-                    backgroundColor: "#f0f0f0",
-                  },
-                  "&:focus": {
-                    outline: "none",
-                  },
-                  "&:focus-visible": {
-                    outline: "none",
-                  },
-                }}
-              >
-                Track your shipment
-              </Button>
-            </Box>
-          </motion.div>
-        </Box>
+                    "& .MuiButton-startIcon": {
+                      marginRight: { xs: 0, sm: "0.5rem" },
+                    },
+                  }}
+                >
+                  {!isSmallScreen && "Track"}
+                </Button>
+              </InputAdornment>
+            ),
+            sx: {
+              borderRadius: "1rem",
+            },
+          }}
+        />
       </Box>
     </Box>
   );
