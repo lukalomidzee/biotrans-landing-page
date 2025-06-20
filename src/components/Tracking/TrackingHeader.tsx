@@ -9,10 +9,124 @@ import {
 } from "@mui/material";
 import { sectionHeadingOffset } from "../../assets/styles/layout";
 import SearchIcon from "@mui/icons-material/Search";
+import axios from "axios";
+import type TrackingData from "./TrackingData";
+import type { TrackingStatus } from "./TrackingData";
 
-const TrackingHeader = () => {
+const TrackingHeader = (props: {
+  hawb: string;
+  searchFunction: React.Dispatch<React.SetStateAction<string>>;
+  dataSetter: React.Dispatch<React.SetStateAction<TrackingData | undefined>>;
+}) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const handleSearch = async (hawb: string) => {
+    // if (!hawb.trim()) return;
+    const query = hawb;
+    const result = await axios.get(
+      `https://biotrans.ge/Tracking/tracing.php?hawb=${query}`
+    );
+    const rawData = result.data;
+    const data = parseData(rawData);
+    props.dataSetter(data);
+    // if (data?.success) {
+    // } else {
+    //   props.dataSetter(null);
+    // }
+  };
+
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (event.key === "Enter") {
+      handleSearch(props.hawb);
+    }
+  };
+
+  const parseData = (htmlString: string): TrackingData => {
+    try {
+      const parser = new DOMParser();
+      const document = parser.parseFromString(htmlString, "text/html");
+      const statusRows = document.querySelectorAll(".table-striped tr");
+      const statuses: TrackingStatus[] = [];
+
+      statusRows.forEach((row) => {
+        const cells = row.querySelectorAll("td");
+        if (cells.length === 4) {
+          const id = parseInt(cells[0].textContent || "0", 10);
+          if (!isNaN(id) && id > 0) {
+            statuses.push({
+              id: id,
+              date: cells[1].textContent?.trim() || "",
+              time: cells[2].textContent?.trim() || "",
+              status: cells[3].textContent?.trim() || "",
+            });
+          }
+        }
+      });
+
+      const getDetailValue = (labelText: string): string => {
+        const allRows = Array.from(document.querySelectorAll("tr"));
+        const targetRow = allRows.find(
+          (row) => row.cells[0]?.textContent?.trim() === labelText
+        );
+        return targetRow?.cells[1]?.textContent?.trim() || "";
+      };
+
+      const notFoundData = statusRows.length === 3;
+      if (notFoundData) {
+        const trackingData: TrackingData = {
+          trackingNumber: "",
+          statuses: [],
+          origin: "",
+          destination: "",
+          weight: NaN,
+          numberOfPcs: NaN,
+          consignee: "",
+          success: false,
+        };
+        return trackingData;
+      }
+
+      const trackingNumber =
+        document
+          .querySelector("h4")
+          ?.textContent?.replace("Tracking Number: ", "")
+          .trim() || "";
+      const origin = getDetailValue("Origin:");
+      const destination = getDetailValue("Destination:");
+      const weight = parseFloat(getDetailValue("Weight (kg):") || "0");
+      const numberOfPcs = parseInt(getDetailValue("Number of pcs:") || "0", 10);
+      const consignee = getDetailValue("Consignee:");
+
+      const trackingData: TrackingData = {
+        trackingNumber,
+        statuses,
+        origin,
+        destination,
+        weight,
+        numberOfPcs,
+        consignee,
+        success: true,
+      };
+
+      return trackingData;
+    } catch (error) {
+      console.error("Failed to parse tracking HTML:", error);
+      const trackingData: TrackingData = {
+        trackingNumber: "",
+        statuses: [],
+        origin: "",
+        destination: "",
+        weight: NaN,
+        numberOfPcs: NaN,
+        consignee: "",
+        success: false,
+      };
+      return trackingData;
+    }
+  };
 
   return (
     <Box
@@ -89,6 +203,9 @@ const TrackingHeader = () => {
         <TextField
           variant="outlined"
           placeholder="Enter AWB Number..."
+          value={props.hawb}
+          onChange={(e) => props.searchFunction(e.target.value)}
+          onKeyDown={handleKeyDown}
           sx={{
             width: {
               xs: "90%",
@@ -155,6 +272,9 @@ const TrackingHeader = () => {
                     "& .MuiButton-startIcon": {
                       marginRight: { xs: 0, sm: "0.5rem" },
                     },
+                  }}
+                  onClick={() => {
+                    handleSearch(props.hawb);
                   }}
                 >
                   {!isSmallScreen && "Track"}

@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import InventoryIcon from "@mui/icons-material/Inventory";
 
-const TrackingBodyEmpty = () => {
+const TrackingBodyEmpty = (props: { found: boolean }) => {
   return (
     <Box
       sx={{
@@ -69,7 +69,7 @@ const TrackingBodyEmpty = () => {
           textAlign: "center",
         }}
       >
-        Enter AWB Number Above
+        {props.found ? "Enter AWB Number Above" : "No records found"}
       </Typography>
       <Typography
         sx={{
@@ -82,7 +82,9 @@ const TrackingBodyEmpty = () => {
           textAlign: "center",
         }}
       >
-        Track your shipment in real-time with detailed timeline updates
+        {props.found
+          ? "Track your shipment in real-time with detailed timeline updates"
+          : "Please enter the AWB correctly"}
       </Typography>
     </Box>
   );
