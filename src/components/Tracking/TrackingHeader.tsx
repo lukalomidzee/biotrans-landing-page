@@ -247,7 +247,7 @@ const TrackingHeader = (props: {
                     borderRadius: 4,
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,
-                    marginRight: "-0.8rem",
+                    marginRight: "-0.85rem",
                     background: "#203477",
                     textTransform: "none",
                     fontSize: "1rem",
@@ -258,6 +258,11 @@ const TrackingHeader = (props: {
                     },
                     "&:focus": {
                       outline: 0,
+                    },
+                    "&:disabled": {
+                      color: "#FFFFFF",
+                      backgroundColor: "#8CBBD6",
+                      cursor: "not-allowed",
                     },
                     width: { xs: "3rem", sm: "auto" },
                     minWidth: { xs: "3rem", sm: "4rem" },
@@ -272,6 +277,7 @@ const TrackingHeader = (props: {
                   onClick={() => {
                     handleSearch(inputValue);
                   }}
+                  disabled={inputValue.length < 1}
                 >
                   {!isSmallScreen && "Track"}
                 </Button>
