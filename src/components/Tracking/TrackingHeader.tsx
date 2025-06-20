@@ -142,9 +142,13 @@ const TrackingHeader = (props: {
           lg: "4rem",
           xl: "6rem",
         },
-        py: {
+        pt: {
           xs: 6,
           md: 10,
+        },
+        pb: {
+          xs: 3,
+          md: 5,
         },
       }}
     >
