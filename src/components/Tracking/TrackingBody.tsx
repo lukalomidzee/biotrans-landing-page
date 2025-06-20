@@ -1,14 +1,11 @@
 import { Box } from "@mui/material";
 import type TrackingData from "./TrackingData";
 
-const TrackingBody = (props: { data: TrackingData | undefined }) => {
-  const readData = props?.data?.consignee;
+const TrackingBody = (props: { data: TrackingData }) => {
+  const readData = props.data;
 
-  return (
-    <Box>
-      <Box>{readData}</Box>
-    </Box>
-  );
+  console.log(readData);
+  return <Box>{readData.consignee}</Box>;
 };
 
 export default TrackingBody;

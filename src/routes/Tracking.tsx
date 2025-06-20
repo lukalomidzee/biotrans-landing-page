@@ -10,11 +10,17 @@ const Tracking = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [hawb, setHawb] = useState<string>("");
-  const [trackingData, setTrackingData] = useState<TrackingData>();
+  const [trackingData, setTrackingData] = useState<TrackingData>({
+    trackingNumber: "",
+    statuses: [],
+    origin: "",
+    destination: "",
+    weight: undefined,
+    numberOfPcs: undefined,
+    consignee: "",
+    searchStatus: "none",
+  });
 
-
-  const hasTyped = hawb.length > 0;
   return (
     <Box
       sx={{
@@ -24,18 +30,16 @@ const Tracking = () => {
         height: "100%",
       }}
     >
-      <TrackingHeader
-        hawb={hawb}
-        searchFunction={setHawb}
-        dataSetter={setTrackingData}
-      />
-      {trackingData === null ? (
-        <TrackingBodyEmpty found={!hasTyped ? true : false} />
-      ) : (
-        
+      <TrackingHeader dataSetter={setTrackingData} />
+      {trackingData.searchStatus === "none" && (
+        <TrackingBodyEmpty empty={true} />
+      )}
+      {trackingData.searchStatus === "notFound" && (
+        <TrackingBodyEmpty empty={false} />
+      )}
+      {trackingData.searchStatus === "found" && (
         <TrackingBody data={trackingData} />
       )}
-      
     </Box>
   );
 };

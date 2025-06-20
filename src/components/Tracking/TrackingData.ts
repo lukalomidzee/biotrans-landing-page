@@ -1,12 +1,12 @@
 export default interface TrackingData {
-  trackingNumber: string;
+  trackingNumber: string | undefined;
   statuses: TrackingStatus[];
-  origin: string;
-  destination: string;
-  weight: number;
-  numberOfPcs: number;
-  consignee: string;
-  success: boolean
+  origin: string | undefined;
+  destination: string | undefined;
+  weight: number | undefined;
+  numberOfPcs: number | undefined;
+  consignee: string | undefined;
+  searchStatus: "none" | "notFound" | "found"
 }
 
 export interface TrackingStatus {

@@ -12,17 +12,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import type TrackingData from "./TrackingData";
 import type { TrackingStatus } from "./TrackingData";
+import { useState } from "react";
 
 const TrackingHeader = (props: {
-  hawb: string;
-  searchFunction: React.Dispatch<React.SetStateAction<string>>;
-  dataSetter: React.Dispatch<React.SetStateAction<TrackingData | undefined>>;
+  dataSetter: React.Dispatch<React.SetStateAction<TrackingData>>;
 }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const [inputValue, setInputValue] = useState<string>("");
+
   const handleSearch = async (hawb: string) => {
-    // if (!hawb.trim()) return;
     const query = hawb;
     const result = await axios.get(
       `https://biotrans.ge/Tracking/tracing.php?hawb=${query}`
@@ -30,17 +30,13 @@ const TrackingHeader = (props: {
     const rawData = result.data;
     const data = parseData(rawData);
     props.dataSetter(data);
-    // if (data?.success) {
-    // } else {
-    //   props.dataSetter(null);
-    // }
   };
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement>
   ): void => {
     if (event.key === "Enter") {
-      handleSearch(props.hawb);
+      handleSearch(inputValue);
     }
   };
 
@@ -84,7 +80,7 @@ const TrackingHeader = (props: {
           weight: NaN,
           numberOfPcs: NaN,
           consignee: "",
-          success: false,
+          searchStatus: "notFound",
         };
         return trackingData;
       }
@@ -108,7 +104,7 @@ const TrackingHeader = (props: {
         weight,
         numberOfPcs,
         consignee,
-        success: true,
+        searchStatus: "found",
       };
 
       return trackingData;
@@ -122,7 +118,7 @@ const TrackingHeader = (props: {
         weight: NaN,
         numberOfPcs: NaN,
         consignee: "",
-        success: false,
+        searchStatus: "notFound",
       };
       return trackingData;
     }
@@ -203,8 +199,8 @@ const TrackingHeader = (props: {
         <TextField
           variant="outlined"
           placeholder="Enter AWB Number..."
-          value={props.hawb}
-          onChange={(e) => props.searchFunction(e.target.value)}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           sx={{
             width: {
@@ -274,7 +270,7 @@ const TrackingHeader = (props: {
                     },
                   }}
                   onClick={() => {
-                    handleSearch(props.hawb);
+                    handleSearch(inputValue);
                   }}
                 >
                   {!isSmallScreen && "Track"}
