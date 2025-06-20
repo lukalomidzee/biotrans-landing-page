@@ -23,6 +23,7 @@ const TrackingHeader = (props: {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSearch = async (hawb: string) => {
+    if (hawb.length < 1) return;
     const query = hawb;
     const result = await axios.get(
       `https://biotrans.ge/Tracking/tracing.php?hawb=${query}`
@@ -210,12 +211,14 @@ const TrackingHeader = (props: {
               lg: "60%",
             },
             "& .MuiOutlinedInput-root": {
+              cursor: "text",
               "&:hover .MuiOutlinedInput-notchedOutline": {
                 borderColor: "rgba(0, 0, 0, 0.23)",
               },
               borderRadius: "1rem",
             },
             "& .MuiOutlinedInput-input": {
+              cursor: "text",
               color: "#203477",
               transition:
                 "background-color 0s ease-out 999999s, color 0s ease-out 999999s !important",
@@ -239,48 +242,57 @@ const TrackingHeader = (props: {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <Button
-                  variant="contained"
-                  startIcon={<SearchIcon />}
+                <Box
                   sx={{
-                    height: "3.5rem",
-                    borderRadius: 4,
-                    borderTopLeftRadius: 0,
-                    borderBottomLeftRadius: 0,
-                    marginRight: "-0.85rem",
-                    background: "#203477",
-                    textTransform: "none",
-                    fontSize: "1rem",
-                    boxShadow: 0,
-                    "&:hover": {
-                      boxShadow: 0,
-                      backgroundColor: "#004E78",
-                    },
-                    "&:focus": {
-                      outline: 0,
-                    },
-                    "&:disabled": {
-                      color: "#FFFFFF",
-                      backgroundColor: "#8CBBD6",
-                      cursor: "not-allowed",
-                    },
-                    width: { xs: "3rem", sm: "auto" },
-                    minWidth: { xs: "3rem", sm: "4rem" },
-                    paddingLeft: { xs: 0, sm: "1rem" },
-                    paddingRight: { xs: 0, sm: "2rem" },
-                    justifyContent: { xs: "center", sm: "flex-start" },
-
-                    "& .MuiButton-startIcon": {
-                      marginRight: { xs: 0, sm: "0.5rem" },
-                    },
+                    display: "flex",
+                    alignItems: "center",
+                    cursor: inputValue.length < 1 ? "not-allowed" : "pointer",
                   }}
-                  onClick={() => {
-                    handleSearch(inputValue);
-                  }}
-                  disabled={inputValue.length < 1}
                 >
-                  {!isSmallScreen && "Track"}
-                </Button>
+                  <Button
+                    variant="contained"
+                    startIcon={<SearchIcon />}
+                    sx={{
+                      height: "3.5rem",
+                      borderRadius: 4,
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
+                      marginRight: "-0.85rem",
+                      background: "#203477",
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      boxShadow: 0,
+                      cursor: "pointer",
+                      "&:hover": {
+                        boxShadow: 0,
+                        backgroundColor: "#004E78",
+                      },
+                      "&:focus": {
+                        outline: 0,
+                      },
+                      "&:disabled": {
+                        color: "#FFFFFF",
+                        backgroundColor: "#8CBBD6",
+                        cursor: "not-allowed !important",
+                      },
+                      width: { xs: "3rem", sm: "auto" },
+                      minWidth: { xs: "3rem", sm: "4rem" },
+                      paddingLeft: { xs: 0, sm: "1rem" },
+                      paddingRight: { xs: 0, sm: "2rem" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
+
+                      "& .MuiButton-startIcon": {
+                        marginRight: { xs: 0, sm: "0.5rem" },
+                      },
+                    }}
+                    onClick={() => {
+                      handleSearch(inputValue);
+                    }}
+                    disabled={inputValue.length < 1}
+                  >
+                    {!isSmallScreen && "Track"}
+                  </Button>
+                </Box>
               </InputAdornment>
             ),
             sx: {
