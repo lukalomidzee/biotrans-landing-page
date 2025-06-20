@@ -14,16 +14,26 @@ function App() {
       sx={{
         margin: 0,
         padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
       }}
     >
       <Header />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/home" element={<Homepage />} />
-        <Route path="/tracking" element={<Tracking />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/packaging" element={<Packaging />} />
-      </Routes>
+      <Box
+        sx={{
+          backgroundColor: "#F9FAFB",
+          flexGrow: "1",
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/tracking" element={<Tracking />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/packaging" element={<Packaging />} />
+        </Routes>
+      </Box>
       <Footer />
     </Box>
   );
