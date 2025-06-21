@@ -204,7 +204,7 @@ const TrackingHeader = (props: {
         <TextField
           variant="outlined"
           placeholder="Enter AWB Number..."
-          value={inputValue}
+          value={inputValue.toUpperCase()}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           sx={{
