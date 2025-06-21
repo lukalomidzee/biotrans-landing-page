@@ -1,5 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import type TrackingData from "./TrackingData";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ScaleIcon from "@mui/icons-material/Scale";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
 
 const TrackingBody = (props: { data: TrackingData }) => {
   const readData = props.data;
@@ -35,10 +38,6 @@ const TrackingBody = (props: { data: TrackingData }) => {
             xs: "90%",
             md: "70%",
           },
-          height: {
-            xs: "20rem",
-            sm: "17rem",
-          },
           backgroundColor: "white",
           borderRadius: 5,
           display: "flex",
@@ -48,6 +47,7 @@ const TrackingBody = (props: { data: TrackingData }) => {
           boxShadow: 1,
           p: 4,
           textAlign: "center",
+          gap: 2,
         }}
       >
         {/* Text header */}
@@ -139,48 +139,245 @@ const TrackingBody = (props: { data: TrackingData }) => {
             </Typography>
           </Box>
         </Box>
-        {/* Cards */}
+        {/* Cards Section */}
         <Box
           sx={{
             width: "100%",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: {
+              xs: "column",
+              md: "row",
+            },
             flexWrap: "wrap",
             justifyContent: "space-between",
+            gap: 2,
           }}
         >
+          {/* Each Card */}
+          {/* Origin */}
           <Box
             sx={{
-              width: "48%",
+              flexGrow: "1",
               color: "black",
               backgroundColor: "#EEF4FF",
               borderRadius: 2,
+              padding: 2,
+              border: "1px solid rgb(173, 200, 227)",
             }}
           >
-            <Typography>Consignee</Typography>
-            <Typography>{readData.consignee}</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                gap: 0.5,
+              }}
+            >
+              <LocationOnIcon
+                color="primary"
+                sx={{
+                  fontSize: {
+                    xs: "1rem",
+                    sm: "1.2rem",
+                    md: "1.4rem",
+                  },
+                }}
+              />
+              <Typography
+                sx={{
+                  color: "#A0A0A0",
+                  fontSize: {
+                    xs: "0.8rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                  },
+                }}
+              >
+                Origin
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                textAlign: "start",
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1rem",
+                },
+              }}
+            >
+              {readData.origin}
+            </Typography>
           </Box>
+          {/* Destination */}
           <Box
             sx={{
-              width: "48%",
+              flexGrow: "1",
               color: "black",
               backgroundColor: "#EEFDF7",
               borderRadius: 2,
+              padding: 2,
+              border: "1px solid #D1FAE5",
             }}
           >
-            <Typography>Pcs.</Typography>
-            <Typography>{readData.numberOfPcs}</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                gap: 0.5,
+              }}
+            >
+              <LocationOnIcon
+                color="success"
+                sx={{
+                  fontSize: {
+                    xs: "1rem",
+                    sm: "1.2rem",
+                    md: "1.4rem",
+                  },
+                }}
+              />
+              <Typography
+                sx={{
+                  color: "#A0A0A0",
+                  fontSize: {
+                    xs: "0.8rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                  },
+                }}
+              >
+                Destination
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                textAlign: "start",
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1rem",
+                },
+              }}
+            >
+              {readData.destination}
+            </Typography>
           </Box>
+          {/* Weight */}
           <Box
             sx={{
-              width: "48%",
+              flexGrow: "1",
               color: "black",
-              backgroundColor: "#FFF8EC",
+              backgroundColor: "#FFF9EC",
               borderRadius: 2,
+              padding: 2,
+              border: "1px solid #FEF3C7",
             }}
           >
-            <Typography>Weight</Typography>
-            <Typography>{readData.weight}</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                gap: 0.5,
+              }}
+            >
+              <ScaleIcon
+                color="warning"
+                sx={{
+                  fontSize: {
+                    xs: "1rem",
+                    sm: "1.2rem",
+                    md: "1.4rem",
+                  },
+                }}
+              />
+              <Typography
+                sx={{
+                  color: "#A0A0A0",
+                  fontSize: {
+                    xs: "0.8rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                  },
+                }}
+              >
+                Weight
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                textAlign: "start",
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1rem",
+                },
+              }}
+            >
+              {readData.weight} kg
+            </Typography>
+          </Box>
+          {/* Pcs */}
+          <Box
+            sx={{
+              flexGrow: "1",
+              color: "black",
+              backgroundColor: "#FBF4FC",
+              borderRadius: 2,
+              padding: 2,
+              border: "1px solid #F3E8FF",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                gap: 0.5,
+              }}
+            >
+              <Inventory2Icon
+                // color=""
+                sx={{
+                  color: "#9F49EC",
+                  fontSize: {
+                    xs: "1rem",
+                    sm: "1.2rem",
+                    md: "1.4rem",
+                  },
+                }}
+              />
+              <Typography
+                sx={{
+                  color: "#A0A0A0",
+                  fontSize: {
+                    xs: "0.8rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                  },
+                }}
+              >
+                Pcs
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                textAlign: "start",
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1rem",
+                },
+              }}
+            >
+              {readData.numberOfPcs}
+            </Typography>
           </Box>
         </Box>
       </Box>
