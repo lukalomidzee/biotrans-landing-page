@@ -1,12 +1,14 @@
+import { lazy, Suspense } from "react";
 import { Box } from "@mui/material";
 import "./App.css";
-import Homepage from "./routes/Homepage";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Tracking from "./routes/Tracking";
-import Services from "./routes/Services";
-import Packaging from "./routes/Packaging";
+
+const Homepage = lazy(() => import("./routes/Homepage"));
+const Tracking = lazy(() => import("./routes/Tracking"));
+const Services = lazy(() => import("./routes/Services"));
+const Packaging = lazy(() => import("./routes/Packaging"));
 
 function App() {
   return (
@@ -26,13 +28,17 @@ function App() {
           flexGrow: "1",
         }}
       >
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/tracking" element={<Tracking />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/packaging" element={<Packaging />} />
-        </Routes>
+        <Suspense
+          fallback={<Box sx={{ p: 4, color: "#203477" }}>Loading page...</Box>}
+        >
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/home" element={<Homepage />} />
+            <Route path="/tracking" element={<Tracking />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/packaging" element={<Packaging />} />
+          </Routes>
+        </Suspense>
       </Box>
       <Footer />
     </Box>
