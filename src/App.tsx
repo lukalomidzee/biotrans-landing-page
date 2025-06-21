@@ -4,16 +4,19 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import LoadingScreen from "./routes/LoadingScreen";
 
 const Homepage = lazy(() => import("./routes/Homepage"));
 const Tracking = lazy(() => import("./routes/Tracking"));
 const Services = lazy(() => import("./routes/Services"));
 const Packaging = lazy(() => import("./routes/Packaging"));
+const NotFound = lazy(() => import("./routes/NotFound"));
 
 function App() {
   return (
     <Box
       sx={{
+        // ...sectionHeadingOffset,
         margin: 0,
         padding: 0,
         display: "flex",
@@ -28,15 +31,14 @@ function App() {
           flexGrow: "1",
         }}
       >
-        <Suspense
-          fallback={<Box sx={{ p: 4, color: "#203477" }}>Loading page...</Box>}
-        >
+        <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/home" element={<Homepage />} />
             <Route path="/tracking" element={<Tracking />} />
             <Route path="/services" element={<Services />} />
             <Route path="/packaging" element={<Packaging />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </Box>
