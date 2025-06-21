@@ -7,7 +7,6 @@ import Inventory2Icon from "@mui/icons-material/Inventory2";
 const TrackingBody = (props: { data: TrackingData }) => {
   const readData = props.data;
 
-  console.log(readData);
   return (
     <Box
       sx={{

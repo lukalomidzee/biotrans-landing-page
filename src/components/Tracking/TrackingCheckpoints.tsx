@@ -2,6 +2,16 @@ import { Box, Typography } from "@mui/material";
 import type TrackingData from "./TrackingData";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import BookIcon from "@mui/icons-material/Book";
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import FlightLandIcon from "@mui/icons-material/FlightLand";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import EditDocumentIcon from "@mui/icons-material/EditDocument";
+import MoreTimeIcon from "@mui/icons-material/MoreTime";
+import SearchIcon from "@mui/icons-material/Search";
+import TakeoutDiningIcon from "@mui/icons-material/TakeoutDining";
+import CheckIcon from "@mui/icons-material/Check";
 
 const TrackingCheckpoints = (props: { data: TrackingData }) => {
   const readData = props.data;
@@ -22,6 +32,11 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
           md: "3rem",
           lg: "4rem",
           xl: "6rem",
+        },
+        pb: {
+          xs: 3,
+          md: 4,
+          lg: 6,
         },
       }}
     >
@@ -52,13 +67,20 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "flex-start",
-            gap: 2,
+            gap: {
+              xs: 1,
+              md: 1.5,
+            },
           }}
         >
           <AccessTimeIcon
             color="primary"
             sx={{
-              fontSize: "2rem",
+              fontSize: {
+                xs: "1.7rem",
+                sm: "1.85rem",
+                md: "2rem",
+              },
             }}
           />
           <Typography
@@ -87,12 +109,16 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
             gap: 2,
           }}
         >
-          {readData.statuses.map((status) => (
+          {readData.statuses.map((status, index) => (
             <Box
+              key={index}
               sx={{
                 flexGrow: "1",
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: {
+                  xs: "column-reverse",
+                  sm: "row",
+                },
                 alignItems: "center",
                 justifyContent: "space-between",
                 width: "100%",
@@ -107,10 +133,12 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "flex-start",
+                  alignItems: {
+                    xs: "center",
+                    sm: "flex-start",
+                  },
                   justifyContent: "space-between",
                   color: "black",
-                  textAlign: "start",
                 }}
               >
                 <Typography
@@ -133,7 +161,10 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 1,
-                    textAlign: "start",
+                    textAlign: {
+                      xs: "center",
+                      sm: "start",
+                    },
                     color: "#334155",
                     fontSize: {
                       xs: "0.8rem",
@@ -146,6 +177,10 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                   <CalendarTodayIcon
                     color="success"
                     sx={{
+                      display: {
+                        xs: "none",
+                        sm: "block",
+                      },
                       fontSize: {
                         xs: "1rem",
                         md: "1.1rem",
@@ -156,6 +191,141 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                   />{" "}
                   {status.date} at {status.time}
                 </Typography>
+              </Box>
+              {/* Icons */}
+              <Box>
+                {status.status === "Booked" && (
+                  <BookIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Picked up" && (
+                  <UnarchiveIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Scheduled delivery" && (
+                  <AccessTimeIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Departure from origin" && (
+                  <FlightTakeoffIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Arrival to destination" && (
+                  <FlightLandIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "With delivery Courier" && (
+                  <LocalShippingIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Customs clearance" && (
+                  <EditDocumentIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Customs delay" && (
+                  <MoreTimeIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Miss cargo in destination" && (
+                  <SearchIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "Partial delivery" && (
+                  <TakeoutDiningIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
+                {status.status === "DELIVERED" && (
+                  <CheckIcon
+                    sx={{
+                      color: "#065F46",
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.7rem",
+                        lg: "2rem",
+                      },
+                    }}
+                  />
+                )}
               </Box>
             </Box>
           ))}
