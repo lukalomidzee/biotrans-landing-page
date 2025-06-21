@@ -4,6 +4,7 @@ import TrackingHeader from "../components/Tracking/TrackingHeader";
 import TrackingBodyEmpty from "../components/Tracking/TrackingBodyEmpty";
 import type TrackingData from "../components/Tracking/TrackingData";
 import TrackingBody from "../components/Tracking/TrackingBody";
+import TrackingCheckpoints from "../components/Tracking/TrackingCheckpoints";
 
 const Tracking = () => {
   useEffect(() => {
@@ -28,6 +29,11 @@ const Tracking = () => {
         flexDirection: "column",
         alignItems: "center",
         height: "100%",
+        gap: {
+          xs: 3,
+          md: 4,
+          lg: 6,
+        },
       }}
     >
       <TrackingHeader dataSetter={setTrackingData} />
@@ -39,6 +45,9 @@ const Tracking = () => {
       )}
       {trackingData.searchStatus === "found" && (
         <TrackingBody data={trackingData} />
+      )}
+      {trackingData.searchStatus === "found" && (
+        <TrackingCheckpoints data={trackingData} />
       )}
     </Box>
   );

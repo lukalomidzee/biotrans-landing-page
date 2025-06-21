@@ -24,11 +24,6 @@ const TrackingBody = (props: { data: TrackingData }) => {
           lg: "4rem",
           xl: "6rem",
         },
-        py: {
-          xs: 6,
-          md: 10,
-        },
-        pt: "0 !important",
       }}
     >
       {/* Info box */}
@@ -94,7 +89,7 @@ const TrackingBody = (props: { data: TrackingData }) => {
                 color: "#203477",
               }}
             >
-              AWB: {readData.trackingNumber}
+              AWB: {readData.trackingNumber?.toUpperCase()}
             </Typography>
             {readData.consignee && (
               <Typography
@@ -363,7 +358,7 @@ const TrackingBody = (props: { data: TrackingData }) => {
                   },
                 }}
               >
-                Pcs
+                Pieces
               </Typography>
             </Box>
             <Typography
@@ -376,7 +371,7 @@ const TrackingBody = (props: { data: TrackingData }) => {
                 },
               }}
             >
-              {readData.numberOfPcs}
+              {readData.numberOfPcs} Pc
             </Typography>
           </Box>
         </Box>

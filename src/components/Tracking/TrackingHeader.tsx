@@ -146,10 +146,6 @@ const TrackingHeader = (props: {
           xs: 6,
           md: 10,
         },
-        pb: {
-          xs: 3,
-          md: 5,
-        },
       }}
     >
       {/* Search box */}
