@@ -55,46 +55,91 @@ const TrackingBody = (props: { data: TrackingData }) => {
           sx={{
             width: "100%",
             display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
+            flexDirection: "column",
+            alignItems: "flex-start",
             justifyContent: "space-between",
             color: "black",
+            gap: 1,
           }}
         >
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              justifyContent: "space-around",
-              color: "#1E293B",
+              width: "100%",
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
+              alignItems: {
+                xs: "flex-start",
+                md: "center",
+              },
+              justifyContent: "space-between",
+              gap: {
+                xs: 1,
+                md: 0,
+              },
             }}
           >
             <Typography
               variant="h1"
               sx={{
-                fontSize: "1.5rem",
+                textAlign: "start",
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.2rem",
+                  md: "1.5rem",
+                },
                 fontWeight: "700",
+                color: "#203477",
               }}
             >
               AWB: {readData.trackingNumber}
             </Typography>
+            {readData.consignee && (
+              <Typography
+                variant="h1"
+                sx={{
+                  textAlign: {
+                    xs: "start",
+                    md: "end",
+                  },
+                  fontSize: {
+                    xs: "1rem",
+                    sm: "1.2rem",
+                    md: "1.5rem",
+                  },
+                  fontWeight: "500",
+                  color: "#A0A0A0",
+                }}
+              >
+                CONSIGNEE: {readData.consignee}
+              </Typography>
+            )}
           </Box>
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              justifyContent: "space-around",
-              color: "#49576A",
+              backgroundColor: "#0d9488",
+              py: 1,
+              px: 2,
+              borderRadius: 2,
             }}
           >
-            <Typography>
-              {readData.origin} - {readData.destination}
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.9rem",
+                  md: "1rem",
+                },
+              }}
+            >
+              {readData.statuses[readData.statuses.length - 1].status}
             </Typography>
           </Box>
         </Box>
-        {/* Cardes */}
+        {/* Cards */}
         <Box
           sx={{
             width: "100%",
