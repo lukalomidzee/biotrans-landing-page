@@ -65,9 +65,10 @@ const TrackingHeader = (props: {
 
       const getDetailValue = (labelText: string): string => {
         const allRows = Array.from(document.querySelectorAll("tr"));
-        const targetRow = allRows.find(
-          (row) => row.cells[0]?.textContent?.trim() === labelText
-        );
+        console.log(allRows);
+        const targetRow = allRows
+          .reverse()
+          .find((row) => row.cells[0]?.textContent?.trim() === labelText);
         return targetRow?.cells[1]?.textContent?.trim() || "";
       };
 

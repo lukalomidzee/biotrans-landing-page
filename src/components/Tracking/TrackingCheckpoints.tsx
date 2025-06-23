@@ -122,8 +122,12 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 width: "100%",
-                backgroundColor: "#EEFDF8",
-                border: "1px solid #A7F3D0",
+                backgroundColor:
+                  status.status === "DELIVERED" ? "#EEFDF7" : "#EEF4FF",
+                border:
+                  status.status === "DELIVERED"
+                    ? "1px solid #D1FAE5"
+                    : "1px solid #BFD4EB",
                 borderRadius: 2,
                 p: 2,
               }}
@@ -150,7 +154,8 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                       lg: "1.5rem",
                     },
                     fontWeight: 700,
-                    color: "#065F46",
+                    color:
+                      status.status === "DELIVERED" ? "#2E7D32" : "#203477",
                   }}
                 >
                   {status.status}
@@ -175,7 +180,9 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                   }}
                 >
                   <CalendarTodayIcon
-                    color="success"
+                    color={
+                      status.status === "DELIVERED" ? "success" : "primary"
+                    }
                     sx={{
                       display: {
                         xs: "none",
@@ -197,7 +204,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Booked" && (
                   <BookIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -209,7 +216,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Picked up" && (
                   <UnarchiveIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -221,7 +228,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Scheduled delivery" && (
                   <AccessTimeIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -233,7 +240,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Departure from origin" && (
                   <FlightTakeoffIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -245,7 +252,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Arrival to destination" && (
                   <FlightLandIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -257,7 +264,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "With delivery Courier" && (
                   <LocalShippingIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -269,7 +276,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Customs clearance" && (
                   <EditDocumentIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -281,7 +288,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Customs delay" && (
                   <MoreTimeIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -293,7 +300,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Miss cargo in destination" && (
                   <SearchIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",
@@ -305,7 +312,7 @@ const TrackingCheckpoints = (props: { data: TrackingData }) => {
                 {status.status === "Partial delivery" && (
                   <TakeoutDiningIcon
                     sx={{
-                      color: "#065F46",
+                      color: "#203477",
                       fontSize: {
                         xs: "1.5rem",
                         sm: "1.7rem",

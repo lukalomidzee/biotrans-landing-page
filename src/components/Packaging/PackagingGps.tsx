@@ -12,7 +12,7 @@ const PackagingGps = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        backgroundColor: "#F9FAFB",
+        backgroundColor: "#FFFFFF",
         px: {
           xs: "1rem",
           sm: "2rem",
@@ -30,7 +30,7 @@ const PackagingGps = () => {
       {/* Heading box */}
       <Box>
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7 }}
@@ -61,7 +61,7 @@ const PackagingGps = () => {
 
       {/* Image + Text box */}
       <motion.div
-        initial={{ opacity: 0, x: 30 }}
+        initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7 }}
@@ -81,6 +81,33 @@ const PackagingGps = () => {
             },
           }}
         >
+          {/* Image box */}
+          <Box
+            sx={{
+              flex: 1,
+              height: {
+                xs: "15rem",
+                sm: "20rem",
+                // md: "25rem",
+              },
+              overflow: "hidden",
+              borderRadius: 2,
+              boxShadow: 1,
+            }}
+          >
+            <Box
+              component="img"
+              src={gpsImage}
+              alt="Loggers"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </Box>
+
           {/* Text box */}
           <Box
             sx={{
@@ -107,33 +134,6 @@ const PackagingGps = () => {
                 provides real-time temperature and location notifications
               </Typography>
             </Box>
-          </Box>
-
-          {/* Image box */}
-          <Box
-            sx={{
-              flex: 1,
-              height: {
-                xs: "15rem",
-                sm: "20rem",
-                // md: "25rem",
-              },
-              overflow: "hidden",
-              borderRadius: 2,
-              boxShadow: 1,
-            }}
-          >
-            <Box
-              component="img"
-              src={gpsImage}
-              alt="Loggers"
-              sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
           </Box>
         </Box>
       </motion.div>

@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import flammableLiquid from "../../assets/background-images/flammableLiquid.jpg";
+import tcvImage from "../../assets/background-images/tcvImage.jpeg";
 
-const ServiceFlammable = () => {
+const PackagingTCV = () => {
   return (
     <Box
       sx={{
@@ -12,7 +12,7 @@ const ServiceFlammable = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#F9FAFB",
         px: {
           xs: "1rem",
           sm: "2rem",
@@ -54,7 +54,7 @@ const ServiceFlammable = () => {
               },
             }}
           >
-            Gas and Oil Samples
+            Temperature Controlled Vehicle
           </Typography>
         </motion.div>
       </Box>
@@ -93,12 +93,6 @@ const ServiceFlammable = () => {
               color: "#5A5A5A",
             }}
           >
-            <Typography textAlign="start">
-              Biotrans offers international and domestic shipping of oil
-              samples, falling under Category 3: Flammable Liquids of dangerous
-              goods classification issued by the United Nations.
-            </Typography>
-
             <Box
               mt={1}
               sx={{
@@ -106,51 +100,46 @@ const ServiceFlammable = () => {
               }}
             >
               <Typography mb={1}>
-                Safe and timely delivery of oil shipments is ensured though the
-                use of approved and certified packaging that is in accordance
-                with international packaging standards.
-              </Typography>
-              <Typography mb={1}>
-                Our team is trained in the handling of dangerous goods, ensuring
-                full compliance with international transport regulations. From
-                proper labeling to certified packaging, every step is managed
-                with precision to guarantee the safety and integrity of oil
-                sample shipments
-              </Typography>
-              <Typography mb={1}>
-                With a strong focus on reliability and regulatory compliance,
-                Biotrans coordinates every oil shipment with meticulous
-                attention to detail. Whether for routine testing or
-                time-sensitive analysis, we provide end-to-end support to meet
-                the unique needs of each client and industry.
+                Biotrans operates its own temperature-controlled vehicle which
+                is equipped with advanced refrigeration and monitoring systems
+                to maintain precise temperature ranges throughout the
+                journey—whether ambient, refrigerated, or frozen. Real-time
+                tracking and temperature logging ensure full visibility and
+                compliance from pickup to delivery.
               </Typography>
             </Box>
           </Box>
+
+          {/* Image box */}
           <Box
-            component="img"
-            src={flammableLiquid}
-            alt="Flammable Liquid"
             sx={{
               flex: 1,
               height: {
                 xs: "15rem",
                 sm: "20rem",
-                md: "25rem",
-              },
-              width: {
-                xs: "80%",
-                md: "50%",
+                // md: "25rem",
               },
               overflow: "hidden",
               borderRadius: 2,
-              objectFit: "contain",
-              // boxShadow: 1,
+              boxShadow: 1,
             }}
-          ></Box>
+          >
+            <Box
+              component="img"
+              src={tcvImage}
+              alt="Loggers"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </Box>
         </Box>
       </motion.div>
     </Box>
   );
 };
 
-export default ServiceFlammable;
+export default PackagingTCV;
