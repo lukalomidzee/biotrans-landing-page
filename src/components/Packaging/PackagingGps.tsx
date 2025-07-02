@@ -131,7 +131,7 @@ const PackagingGps = () => {
                 their transportation process. GPS Monitor delivers end-to-end
                 real-time shipment location, helping prevent the loss of
                 shipments with in-transit visibility and alerts. It also
-                provides real-time temperature and location notifications
+                provides real-time temperature and location notifications.
               </Typography>
             </Box>
           </Box>

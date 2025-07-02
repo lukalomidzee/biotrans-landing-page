@@ -129,7 +129,7 @@ const PackagingVehicles = () => {
               <Typography mb={1}>
                 We own a new transport fleet, including a qualified Temperature
                 Controlled Vehicle. Well trained, experienced couriers guarantee
-                safe and timely delivery of shipments, at any temperature range
+                safe and timely delivery of shipments, at any temperature range.
               </Typography>
             </Box>
           </Box>

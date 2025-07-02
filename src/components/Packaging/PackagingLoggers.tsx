@@ -104,7 +104,7 @@ const PackagingLoggers = () => {
                 during the transportation process. Our temperature loggers,
                 sourced from certified, leading providers on the market, ensure
                 that shipment temperature data for the entire transportation
-                process is recorded and available to our clients
+                process is recorded and available to our clients.
               </Typography>
             </Box>
           </Box>

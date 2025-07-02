@@ -128,7 +128,7 @@ const ServiceBrokerage = () => {
             >
               <Typography mb={1}>
                 Biotrans offers guidance and procedural support of import
-                clearance operations in Georgia
+                clearance operations in Georgia.
               </Typography>
               <Typography mb={1}>
                 Customs clearance service is provided to clients in ensuring
@@ -141,7 +141,7 @@ const ServiceBrokerage = () => {
                 submitted by the client is compliant with requirements of the
                 relevant national regulatory agencies and Georgian and takes
                 appropriate measures In case of any arising problems during the
-                customs clearance process
+                customs clearance process.
               </Typography>
             </Box>
           </Box>

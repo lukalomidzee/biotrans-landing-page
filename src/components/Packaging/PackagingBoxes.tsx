@@ -131,7 +131,7 @@ const PackagingBoxes = () => {
                 temperature range. Each type of packing material used for
                 transporting dangerous goods is UN certified and complies with
                 IATA regulations. Our shipping boxes are sourced from the
-                leading transportation material providers on the market
+                leading transportation material providers on the market.
               </Typography>
             </Box>
           </Box>
